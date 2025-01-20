@@ -1,0 +1,56 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Ivonne",
+      "username": "admin",
+      "email": "admin@gmail.com",
+      "password": "1234"
+    },
+    {
+      "id": 2,
+      "name": "Ivonne Nabangala",
+      "username": "Ivonne",
+      "email": "email@gmail.com",
+      "password": "1234"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "productName": "Sweater",
+      "description": "lorem ipsum lorem ipsum",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRnim0lPhcbDkKEJ_Uf9evbA_OvDYLox_8Aw&s",
+      "price": 2000
+    },
+    {
+      "id": 2,
+      "productName": "Power Sneakers",
+      "description": "Elevate your run with comfortable shoes",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRxa6wy1ISty6dgeaGC-fHUnUPbUq2LI_Keg&s",
+      "price": 4500
+    }
+  ],
+  "cartItems": [
+    {
+      "id": "b517",
+      "userId": 1,
+      "products": [
+        {
+          "productId": 1,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "8ae2",
+      "userId": 2,
+      "products": [
+        {
+          "productId": 2,
+          "quantity": 2
+        }
+      ]
+    }
+  ]
+}
