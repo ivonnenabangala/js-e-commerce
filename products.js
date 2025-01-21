@@ -101,8 +101,56 @@ async function deleteProduct(id) {
 
 }
 
-async function createProduct() {
+// async function createProduct() {
 
     
+// }
+const productForm = document.querySelector(".product-form")
+productForm.onsubmit = async (event) => {
+    event.preventDefault()
+
+    const name = document.getElementById("productName").value
+    const image = document.getElementById("productImage").value
+    const price = document.getElementById("productPrice").value
+    const description = document.getElementById("productDesc").value
+
+    const newProduct = {
+        // id: userId,
+        productName: name,
+        image: image,
+        price: price,
+        description: description
+    }
+
+    try {
+        let response = await fetch(productsApiUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newProduct)
+        })
+
+        if (!response.ok) {
+            throw new Error(`Response status: ${response.status}`)
+        }
+        
+
+        productForm.reset()
+        getProducts()
+    } catch (error) {
+        console.log(error);
+
+    }
+
 }
+const openCreateForm = () => {
+    document.querySelector(".product-form").style.display = "block";
+}
+
+  
+  const closeForm = () => {
+    document.querySelector(".product-form").style.display = "none";
+
+  }
 

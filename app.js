@@ -53,6 +53,12 @@ regForm.onsubmit = async (event) => {
 
         userId++;
         localStorage.setItem("userId", userId);
+        Swal.fire({
+            title: "Account Created Successfullt",
+            text: "Log in to your account to proceed!",
+            icon: "success",
+            confirmButtonText: "OK"
+        });
 
         regForm.reset()
     } catch (error) {
@@ -89,11 +95,17 @@ loginForm.onsubmit = async (event) => {
         } else{
             console.log("User logged in:", loggedUser);
             localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
-            alert("Login successful!");
+            Swal.fire({
+                title: "Login Successful!",
+                text: "Welcome back!",
+                icon: "success",
+                confirmButtonText: "OK"
+            });
+            document.querySelector(".login-form").style.display = "none"
         }
         console.log("Logged user: ", loggedUser);
         if(loggedUser.username == "admin"){
-
+            document.querySelector(".admin-products").style.display = "block";
         }
         console.log(loggedUser.username);
         
@@ -103,4 +115,11 @@ loginForm.onsubmit = async (event) => {
 
     }
 
+}
+
+const openLoginForm = () => {
+        document.querySelector(".login-form").style.display = "block";
+}
+const openSignUpForm = () => {
+    document.querySelector(".sign-up-form").style.display = "block";
 }

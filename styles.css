@@ -63,6 +63,9 @@ a{
     border-radius: 50%;
     border: none;
 }
+.admin-products{
+    display: none;
+}
 .main{
     width: 80%;
     margin: auto;
@@ -132,7 +135,11 @@ form button{
         transition: 0.3s;
         width: 30%;
         padding: 30px;
-        /* height: 424px; */
+        display: none;
+        position: absolute;
+        top: 10%;
+        left: 30%;
+        background-color: wheat;
 }
 #invalidLogin {
     color: red;
@@ -140,7 +147,7 @@ form button{
 }
 table{
     width: 90%;
-    margin: 32px auto;
+    margin: 5px auto;
 }
 th, td{
     padding: 10px;
@@ -155,4 +162,20 @@ table, th, td {
 .actions i{
     padding-right: 5px;
     color: orangered;
+}
+.adminTable button{
+    width: 100px;
+    padding: 10px;
+    margin: 15px;
+    border: white;
+    background-color: orangered;
+    border-radius: 30px;
+    color: white;
+}
+.product-form{
+    display: none;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40%;
+    padding: 30px;
 }
