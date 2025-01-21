@@ -17,7 +17,7 @@
       "password": "1234"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Coyotito",
       "username": "Coyote",
       "email": "coyote@gmail.com",
@@ -27,39 +27,46 @@
   ],
   "products": [
     {
-      "id": "1",
-      "productName": "Sweater",
-      "description": "lorem ipsum lorem ipsum",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRnim0lPhcbDkKEJ_Uf9evbA_OvDYLox_8Aw&s",
-      "price": 2000
-    },
-    {
-      "id": "2",
       "productName": "Power Sneakers",
-      "description": "Elevate your run with comfortable shoes",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRxa6wy1ISty6dgeaGC-fHUnUPbUq2LI_Keg&s",
-      "price": 4500
+      "price": "4500",
+      "description": "Elevate your run with comfortable shoes",
+      "id": "2"
     },
     {
-      "id": "b958",
+      "id": "3",
       "productName": "Puma Sneakers",
       "image": "https://www.californian.co.za/wp-content/uploads/2023/07/A1201-PUMA-WHITE_VARSITYGREEN3.jpg",
       "price": "4000",
       "description": "Get a stylish look and a comfortable feel"
     },
     {
-      "id": "1eec",
+      "id": "4",
       "productName": "Skechers sneakers",
       "image": "https://greenesshoes.com/cdn/shop/files/149669_NVPR_B_2048x.jpg?v=1705421261",
       "price": "9000",
       "description": "Comfortable outdoor and running shoes"
     },
     {
-      "id": "6097",
+      "id": "5",
       "productName": "Power Sandals",
       "image": "https://www.batabd.com/cdn/shop/products/1_2218bc23-2173-45a9-8c27-cd4338c6294a_1024x1024.jpg?v=1737230074",
       "price": "2000",
       "description": "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum"
+    },
+    {
+      "id": 6,
+      "productName": "North Star",
+      "image": "https://s3-eu-west-1.amazonaws.com/myrunway-portal-global/Images/NOR_8806133_BLANK/NOR_8806133_BLANK%7C3.jpg",
+      "price": "3000",
+      "description": "lorem ipsum"
+    },
+    {
+      "id": 7,
+      "productName": "North Star",
+      "image": "https://s3-eu-west-1.amazonaws.com/myrunway-portal-global/Images/NOR_8806133_BLANK/NOR_8806133_BLANK%7C3.jpg",
+      "price": "3000",
+      "description": "lorem ipsum"
     }
   ],
   "cartItems": [
