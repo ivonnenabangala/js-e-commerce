@@ -5,6 +5,7 @@
       "name": "Ivonne",
       "username": "admin",
       "email": "admin@gmail.com",
+      "role": "admin",
       "password": "1234"
     },
     {
@@ -12,13 +13,15 @@
       "name": "Ivonne Nabangala",
       "username": "Ivonne",
       "email": "email@gmail.com",
+      "role": "customer",
       "password": "1234"
     },
     {
-      "id": 3,
+      "id": 4,
       "name": "Coyotito",
       "username": "Coyote",
       "email": "coyote@gmail.com",
+      "role": "customer",
       "password": "1111"
     }
   ],

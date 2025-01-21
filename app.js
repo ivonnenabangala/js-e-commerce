@@ -33,6 +33,7 @@ regForm.onsubmit = async (event) => {
         name: name,
         username: username,
         email: email,
+        role: "customer",
         password: password
     }
 
@@ -104,7 +105,7 @@ loginForm.onsubmit = async (event) => {
             document.querySelector(".login-form").style.display = "none"
         }
         console.log("Logged user: ", loggedUser);
-        if(loggedUser.username == "admin"){
+        if(loggedUser.role == "admin"){
             document.querySelector(".admin-products").style.display = "block";
         }
         console.log(loggedUser.username);

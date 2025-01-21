@@ -12,9 +12,9 @@ async function getProducts() {
 
         const products = await response.json();
         console.log(products);
-        
+
         container.innerHTML = ""
-        for(let product of products) {
+        for (let product of products) {
 
             let displayProduct = document.createElement('div');
             displayProduct.className = 'card';
@@ -31,7 +31,7 @@ async function getProducts() {
             `
             container.appendChild(displayProduct);
         }
-        
+
 
 
         console.log("Products: ", products)
@@ -53,9 +53,9 @@ async function getAdminProducts() {
 
         const products = await response.json();
         console.log(products);
-        
+
         tableBody.innerHTML = ""
-        for(let product of products){
+        for (let product of products) {
             let adminProduct = document.createElement('tr')
             adminProduct.innerHTML = `
            
@@ -65,12 +65,12 @@ async function getAdminProducts() {
             <td>${product.price}</td>
             <td>${product.description}</td>
             <td class="actions">
-            <i class="fa fa-edit" aria-hidden="true" onclick="openForm(); prepopulateForm(${product.id})"></i>
+            <i class="fa fa-edit" aria-hidden="true" onclick="openEditForm(); prepopulateForm(${product.id})"></i>
               <i class="fa fa-trash" aria-hidden="true" onclick="deleteProduct(${product.id})"></i>
             </td>
             `
             console.log(adminProduct);
-           
+
             tableBody.appendChild(adminProduct)
         }
 
@@ -101,10 +101,6 @@ async function deleteProduct(id) {
 
 }
 
-// async function createProduct() {
-
-    
-// }
 const productForm = document.querySelector(".product-form")
 productForm.onsubmit = async (event) => {
     event.preventDefault()
@@ -115,7 +111,6 @@ productForm.onsubmit = async (event) => {
     const description = document.getElementById("productDesc").value
 
     const newProduct = {
-        // id: userId,
         productName: name,
         image: image,
         price: price,
@@ -134,7 +129,7 @@ productForm.onsubmit = async (event) => {
         if (!response.ok) {
             throw new Error(`Response status: ${response.status}`)
         }
-        
+
 
         productForm.reset()
         getProducts()
@@ -148,9 +143,11 @@ const openCreateForm = () => {
     document.querySelector(".product-form").style.display = "block";
 }
 
-  
-  const closeForm = () => {
+const closeForm = () => {
     document.querySelector(".product-form").style.display = "none";
+}
 
-  }
+async function prepopulateForm(id) {
+    
+}
 
