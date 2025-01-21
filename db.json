@@ -1,14 +1,14 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Ivonne",
       "username": "admin",
       "email": "admin@gmail.com",
       "password": "1234"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Ivonne Nabangala",
       "username": "Ivonne",
       "email": "email@gmail.com",
@@ -24,7 +24,7 @@
       "price": 2000
     },
     {
-      "id": 2,
+      "id": "2",
       "productName": "Power Sneakers",
       "description": "Elevate your run with comfortable shoes",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRxa6wy1ISty6dgeaGC-fHUnUPbUq2LI_Keg&s",
@@ -49,6 +49,10 @@
         {
           "productId": 2,
           "quantity": 2
+        },
+        {
+          "productId": 1,
+          "quantity": 3
         }
       ]
     }

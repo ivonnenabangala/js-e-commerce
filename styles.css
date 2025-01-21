@@ -138,3 +138,21 @@ form button{
     color: red;
     display: none;
 }
+table{
+    width: 90%;
+    margin: 32px auto;
+}
+th, td{
+    padding: 10px;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  td img{
+    width: 50px;
+  }
+.actions i{
+    padding-right: 5px;
+    color: orangered;
+}
