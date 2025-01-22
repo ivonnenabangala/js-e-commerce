@@ -55,14 +55,7 @@
       "description": "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum"
     },
     {
-      "id": 6,
-      "productName": "North Star",
-      "image": "https://s3-eu-west-1.amazonaws.com/myrunway-portal-global/Images/NOR_8806133_BLANK/NOR_8806133_BLANK%7C3.jpg",
-      "price": "3000",
-      "description": "lorem ipsum"
-    },
-    {
-      "id": 7,
+      "id": "7",
       "productName": "North Star",
       "image": "https://s3-eu-west-1.amazonaws.com/myrunway-portal-global/Images/NOR_8806133_BLANK/NOR_8806133_BLANK%7C3.jpg",
       "price": "3000",
@@ -71,26 +64,29 @@
   ],
   "cartItems": [
     {
-      "id": "b517",
-      "userId": 1,
+      "id": "6",
+      "userId": "2",
       "products": [
         {
-          "productId": 1,
+          "productId": 4,
+          "quantity": 5
+        },
+        {
+          "productId": 5,
+          "quantity": 2
+        },
+        {
           "quantity": 1
         }
       ]
     },
     {
-      "id": "8ae2",
-      "userId": 2,
+      "id": 7,
+      "userId": "1",
       "products": [
         {
-          "productId": 2,
-          "quantity": 2
-        },
-        {
-          "productId": 1,
-          "quantity": 3
+          "productId": 4,
+          "quantity": 1
         }
       ]
     }
