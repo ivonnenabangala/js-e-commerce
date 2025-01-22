@@ -108,6 +108,12 @@ loginForm.onsubmit = async (event) => {
         if(loggedUser.role == "admin"){
             document.querySelector(".admin-products").style.display = "block";
         }
+        if(loggedUser){
+            document.querySelector(".btn-login").style.display = "none"
+            document.querySelector(".btn-sign-up").style.display = "none"
+            document.querySelector(".logout-btn").style.display = "block"
+
+        }
         console.log(loggedUser.username);
         
 
@@ -123,4 +129,11 @@ const openLoginForm = () => {
 }
 const openSignUpForm = () => {
     document.querySelector(".sign-up-form").style.display = "block";
+}
+function logout() {
+    localStorage.clear()
+    document.querySelector(".btn-login").style.display = "block"
+    document.querySelector(".btn-sign-up").style.display = "block"
+    document.querySelector(".logout-btn").style.display = "none"
+    document.querySelector(".admin-products").style.display = "none";
 }

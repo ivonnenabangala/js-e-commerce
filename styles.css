@@ -51,11 +51,14 @@ body{
 a{
     text-decoration: none;
 }
-.nav-icons .btn-sign-up, .nav-icons .btn-login{
+.nav-icons .btn-sign-up, .nav-icons .btn-login, .nav-icons .logout-btn{
     border: none;
     width: 100px;
     padding: 10px;
     border-radius: 30px;
+}
+.nav-icons .btn-sign-up, .nav-icons .btn-login{
+    display: block;
 }
 .nav-icons .cart-icon{
     width: 50px;
@@ -73,6 +76,9 @@ a{
 .main{
     width: 80%;
     margin: auto;
+}
+.logout-btn{
+    display: none;
 }
 .cards{
     display: flex;
@@ -209,6 +215,15 @@ table, th, td {
 }
 .cart-card .content{
     width: 50%;
+}
+
+#checkoutMessage{
+    display: none; font-size: 18px; color: green;
+    text-align: center;
+}
+.no-items{
+    display: none; font-size: 18px;
+    text-align: center;
 }
 .checkout{
     border: 1px solid wheat;

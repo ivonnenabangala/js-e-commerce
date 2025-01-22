@@ -23,6 +23,22 @@
       "email": "coyote@gmail.com",
       "role": "customer",
       "password": "1111"
+    },
+    {
+      "id": "1",
+      "name": "Jane Doe",
+      "username": "janedoe",
+      "email": "janedoe@gmail.com",
+      "role": "customer",
+      "password": "1234"
+    },
+    {
+      "id": "2",
+      "name": "Jane Doe",
+      "username": "janedoe",
+      "email": "janedoe@gmail.com",
+      "role": "customer",
+      "password": "1234"
     }
   ],
   "products": [
@@ -55,11 +71,11 @@
       "description": "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum"
     },
     {
-      "id": "7",
-      "productName": "North Star",
-      "image": "https://s3-eu-west-1.amazonaws.com/myrunway-portal-global/Images/NOR_8806133_BLANK/NOR_8806133_BLANK%7C3.jpg",
-      "price": "3000",
-      "description": "lorem ipsum"
+      "id": "8",
+      "productName": "name",
+      "image": "https://www.californian.co.za/wp-content/uploads/2023/07/A1201-PUMA-WHITE_VARSITYGREEN3.jpg",
+      "price": "100",
+      "description": "descr"
     }
   ],
   "cartItems": [
@@ -69,26 +85,14 @@
       "products": [
         {
           "productId": 4,
-          "quantity": 5
-        },
-        {
-          "productId": 5,
-          "quantity": 2
-        },
-        {
-          "quantity": 1
+          "quantity": 4
         }
       ]
     },
     {
-      "id": 7,
+      "id": "7",
       "userId": "1",
-      "products": [
-        {
-          "productId": 4,
-          "quantity": 1
-        }
-      ]
+      "products": []
     }
   ]
 }
