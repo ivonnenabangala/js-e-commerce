@@ -119,7 +119,7 @@ async function getCartItems() {
     let loggedUser = JSON.parse(localStorage.getItem("loggedUser"))
 
     if(!loggedUser){
-        alert("Login first to view cart")
+        // alert("Login first to view cart")
         return
     }
     let userId = loggedUser.id
@@ -135,7 +135,7 @@ async function getCartItems() {
 
         if (!cartItems.length || !cartItems[0].products.length) {
             console.log("No items in the cart.");
-            document.querySelector(".no-items").style.display = "block"
+            document.querySelector("#no-items").style.display = "block"
             return;
         }
 
@@ -171,7 +171,7 @@ async function getCartItems() {
             cartCards.className = "cart-cards"
 
             cartCards.innerHTML = `
-            <div class="cart-card">
+            <div class="cart-card" data-cy="cart-card">
             <div class="product-image">
 
                 <img src="${product.image}" alt="product image">
@@ -190,7 +190,7 @@ async function getCartItems() {
         </div>
         <div class="checkout">
             <h2>Total Price: ${totalPrice}</h2>
-            <button onclick="handleCheckout(${product.productId})">Checkout</button>
+            <button onclick="handleCheckout(${product.productId})" data-cy="checkout">Checkout</button>
         </div>
             `
 
@@ -405,63 +405,187 @@ async function deleteProduct(id) {
 
 }
 
+// let prodId = localStorage.getItem("prodId") ? parseInt(localStorage.getItem("prodId")) : 1;
+
+// const productForm = document.querySelector(".product-form")
+// const formTitle = productForm.querySelector("h1");
+// const submitButton = productForm.querySelector("button[type='submit']");
+// productForm.onsubmit = async (event) => {
+//     event.preventDefault()
+
+//     const name = document.getElementById("productName").value
+//     const image = document.getElementById("productImage").value
+//     const price = document.getElementById("productPrice").value
+//     const description = document.getElementById("productDesc").value
+
+//     const newProduct = {
+//         id: prodId,
+//         productName: name,
+//         image: image,
+//         price: price,
+//         description: description
+//     }
+
+//     try {
+//         let response;
+//         if (editId) {
+//             response = await fetch(`${productsApiUrl}/${editId}`, {
+//                 method: "PUT",
+//                 headers: { "Content-Type": "application/json" },
+//                 body: JSON.stringify(newProduct)
+//             });
+//         } else {
+//             response = await fetch(productsApiUrl, {
+//                 method: "POST",
+//                 headers: { "Content-Type": "application/json" },
+//                 body: JSON.stringify(newProduct)
+//             });
+//         }
+
+//         if (!response.ok) {
+//             throw new Error(`Response status: ${response.status}`)
+//         }
+//         prodId++;
+//         localStorage.setItem("prodId", prodId);
+
+
+//         productForm.reset()
+//         getProducts()
+//         getAdminProducts()
+//         closeForm()
+//     } catch (error) {
+//         console.log(error);
+
+//     }
+
+// }
 let prodId = localStorage.getItem("prodId") ? parseInt(localStorage.getItem("prodId")) : 1;
 
-const productForm = document.querySelector(".product-form")
-const formTitle = productForm.querySelector("h1");
-const submitButton = productForm.querySelector("button[type='submit']");
-productForm.onsubmit = async (event) => {
-    event.preventDefault()
+const productForm = document.querySelector(".product-form");
 
-    const name = document.getElementById("productName").value
-    const image = document.getElementById("productImage").value
-    const price = document.getElementById("productPrice").value
-    const description = document.getElementById("productDesc").value
+if (productForm) {
+    const formTitle = productForm.querySelector("h1");
+    const submitButton = productForm.querySelector("button[type='submit']");
 
-    const newProduct = {
-        id: prodId,
-        productName: name,
-        image: image,
-        price: price,
-        description: description
-    }
+    productForm.onsubmit = async (event) => {
+        event.preventDefault();
 
-    try {
-        let response;
-        if (editId) {
-            response = await fetch(`${productsApiUrl}/${editId}`, {
-                method: "PUT",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(newProduct)
-            });
-        } else {
-            response = await fetch(productsApiUrl, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(newProduct)
-            });
+        const name = document.getElementById("productName")?.value.trim();
+        const image = document.getElementById("productImage")?.value.trim();
+        const price = document.getElementById("productPrice")?.value.trim();
+        const description = document.getElementById("productDesc")?.value.trim();
+
+        if (!name || !image || !price || !description) {
+            console.log("All fields are required.");
+            return;
         }
 
-        if (!response.ok) {
-            throw new Error(`Response status: ${response.status}`)
+        const newProduct = {
+            id: prodId,
+            productName: name,
+            image: image,
+            price: price,
+            description: description
+        };
+
+        try {
+            let response;
+            if (editId) {
+                response = await fetch(`${productsApiUrl}/${editId}`, {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(newProduct)
+                });
+            } else {
+                response = await fetch(productsApiUrl, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(newProduct)
+                });
+            }
+
+            if (!response.ok) {
+                throw new Error(`Response status: ${response.status}`);
+            }
+
+            prodId++;
+            localStorage.setItem("prodId", prodId);
+
+            productForm.reset();
+            getProducts();
+            getAdminProducts();
+            closeForm();
+        } catch (error) {
+            console.error("Error submitting form:", error);
         }
-        prodId++;
-        localStorage.setItem("prodId", prodId);
-
-
-        productForm.reset()
-        getProducts()
-        getAdminProducts()
-        closeForm()
-    } catch (error) {
-        console.log(error);
-
-    }
-
+    };
+} else {
+    console.warn("Product form not found in the DOM.");
 }
 
 
+// if (productForm) {
+//     productForm.onsubmit = async (event) => {
+//         event.preventDefault()
+
+//     const name = document.getElementById("productName").value
+//     const image = document.getElementById("productImage").value
+//     const price = document.getElementById("productPrice").value
+//     const description = document.getElementById("productDesc").value
+
+//     const newProduct = {
+//         id: prodId,
+//         productName: name,
+//         image: image,
+//         price: price,
+//         description: description
+//     }
+//     console.log("editId:", editId); // Debugging
+
+//     try {
+//         console.log("Submitting product:", newProduct);
+//     console.log("API URL:", editId ? `${productsApiUrl}/${editId}` : productsApiUrl);
+// console.log("Response:", await response.json());
+
+//         let response;
+//         if (editId) {
+//             response = await fetch(`${productsApiUrl}/${editId}`, {
+//                 method: "PUT",
+//                 headers: { "Content-Type": "application/json" },
+//                 body: JSON.stringify(newProduct)
+//             });
+//         } else {
+//             response = await fetch(productsApiUrl, {
+//                 method: "POST",
+//                 headers: { "Content-Type": "application/json" },
+//                 body: JSON.stringify(newProduct)
+//             });
+//         }
+
+//         if (!response.ok) {
+//             throw new Error(`Response status: ${response.status}`);
+//         }
+//         prodId++;
+//         localStorage.setItem("prodId", prodId);
+
+//         productForm.reset();
+//         getProducts();
+//         getAdminProducts();
+//         closeForm();
+//     } catch (error) {
+//         console.log(error);
+//     }
+//     };
+// }
+
+
+
 function openCreateForm() {
+    const productForm = document.querySelector(".product-form");
+    const formTitle = productForm.querySelector("h1");
+    const submitButton = productForm.querySelector("button[type='submit']");
+
+
     document.querySelector(".product-form").style.display = "block";
     editId = null;
     formTitle.textContent = "Create New Product";
@@ -471,6 +595,10 @@ function openCreateForm() {
 }
 
 function openEditForm(id) {
+    const productForm = document.querySelector(".product-form");
+    const formTitle = productForm.querySelector("h1");
+    const submitButton = productForm.querySelector("button[type='submit']");
+
     document.querySelector(".product-form").style.display = "block";
     editId = id;
     formTitle.textContent = "Edit Product";

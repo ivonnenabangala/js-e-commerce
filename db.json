@@ -84,8 +84,12 @@
       "userId": "2",
       "products": [
         {
-          "productId": 4,
-          "quantity": 4
+          "productId": 3,
+          "quantity": 2
+        },
+        {
+          "productId": 2,
+          "quantity": 1
         }
       ]
     },

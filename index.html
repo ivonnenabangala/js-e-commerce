@@ -27,14 +27,14 @@
               <a href="#">Products</a>
               <a href="#">About</a>
               <a href="#">Contact</a>
-              <a href="product.html" class="admin-products">View Products</a>
+              <a href="product.html" class="admin-products" data-cy="products-table">View Products</a>
             </div>
             <div class="nav-icons">
-                <button class="btn-sign-up" onclick="openSignUpForm()">Sign up</button>
-                <button class="btn-login" onclick="openLoginForm()">Login</button>
-                <button class="logout-btn" onclick="logout()">Logout</button>
+                <button class="btn-sign-up" data-cy="sign-up-btn" onclick="openSignUpForm()">Sign up</button>
+                <button class="btn-login" data-cy="login-btn" onclick="openLoginForm()">Login</button>
+                <button class="logout-btn" data-cy="logout-btn" onclick="logout()">Logout</button>
                     <div class="cart">
-                      <a href="cart.html">
+                      <a href="cart.html" data-cy="open-cart">
                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                       </a>
                         <!-- <span>0</span> -->
@@ -54,17 +54,24 @@
 
     <!-- Sig Up form -->
     <div class="sign-up-form">
+      <p id="account-success">Account successfully created. Login to purchase</p>
         <form action="submit" id="registerForm">
+          <p id="incomplete-form">Please fill in all the fields!</p>
+          <p id="account-exists">Account with that email exists. Login to that account or create a new one.</p>
             <h1>Create Account</h1>
             <label for="name">Name</label>
-            <input type="text" placeholder="Name" required id="name">
+            <input type="text" placeholder="Name" id="name" data-cy="name">
             <label for="username">Username</label>
-            <input type="text" placeholder="username" required id="username">
+            <input type="text" placeholder="username" id="username" data-cy="username">
             <label for="email">Email</label>
-            <input type="text" placeholder="email" required id="email">
+            <input type="email" placeholder="email" id="email" data-cy="email">
             <label for="password">Password</label>
-            <input type="text" placeholder="password" required id="password">
-            <button>Register</button>
+            <input type="text" placeholder="password" id="password" data-cy="password">
+            <div class="form-btns" data-cy="form-btns">
+
+              <button>Register</button>
+              <button onclick="closeOpenForm()" type="button">Close</button>
+            </div>
         </form>
     </div>
 
@@ -72,12 +79,19 @@
      <div class="login-form">
         <form action="submit" id="loginForm">
             <p id="invalidLogin">Invalid username or password!</p>
+            <p id="incomplete-form">Please fill in all the fields!</p>
+            <p id="login-success">Successfully logged in!</p>
+
             <h1>Login</h1>
             <label for="username">Username</label>
-            <input type="text" placeholder="username" required id="logUsername">
+            <input type="text" placeholder="username" id="logUsername" data-cy="login-username">
             <label for="password">Password</label>
-            <input type="text" placeholder="password" required id="logPassword">
-            <button>Login</button>
+            <input type="text" placeholder="password" id="logPassword" data-cy="login-passwd">
+            <div class="form-btns">
+
+              <button data-cy="login">Login</button>
+              <button onclick="closeOpenForm()" type="button" data-cy="close-login">Close</button>
+            </div>
         </form>
      </div>
     

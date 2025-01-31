@@ -240,3 +240,19 @@ table, th, td {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
 }
+#incomplete-form, #account-success, #account-exists{
+    text-align: center;
+    color: red;
+    font-size: large;
+    display: none;
+}
+#account-success{
+    color: green;
+}
+.form-btns{
+    display: flex;
+    gap: 20px;
+}
+#no-items{
+    display: none;
+}

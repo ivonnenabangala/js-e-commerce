@@ -11,18 +11,18 @@
 </head>
 <body>
   <div class="adminTable">
-    <button onclick="openCreateForm()">Add Product</button>
+    <button onclick="openCreateForm()" data-cy="add-product">Add Product</button>
     <div class="product-form">
       <form action="">
         <h1>Create new Product</h1>
         <label for="name">Name*</label>
-        <input type="text" id="productName" placeholder="Product name" required>
+        <input type="text" id="productName" placeholder="Product name" required data-cy="product-name">
         <label for="image">Image*</label>
-        <input type="text" id="productImage" placeholder="Image URL" required>
+        <input type="text" id="productImage" placeholder="Image URL" required data-cy="product-image">
         <label for="price">Price*</label>
-        <input type="text" id="productPrice" required placeholder="Product price">
+        <input type="text" id="productPrice" required placeholder="Product price" data-cy="product-price">
         <label for="description">Description*</label>
-        <textarea id="productDesc" placeholder="Product description" rows="4" cols="50" required></textarea>
+        <textarea id="productDesc" placeholder="Product description" rows="4" cols="50" required data-cy="product-desc"></textarea>
         <div class="product-form-btns">
           <button type="submit">Add Product</button>
           <button onclick="closeForm()" type="button">Close</button>

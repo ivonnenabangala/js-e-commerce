@@ -1,5 +1,9 @@
 {
   "dependencies": {
+    "cypress": "^14.0.1",
     "uuid": "^11.0.5"
+  },
+  "devDependencies": {
+    "@types/cypress": "^1.1.6"
   }
 }

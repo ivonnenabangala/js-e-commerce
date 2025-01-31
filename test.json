@@ -1,0 +1,63 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Ivonne",
+      "username": "admin",
+      "email": "admin@gmail.com",
+      "role": "admin",
+      "password": "1234"
+    },
+    {
+      "id": "2",
+      "name": "Coyotito",
+      "username": "Coyote",
+      "email": "coyote@gmail.com",
+      "role": "customer",
+      "password": "1111"
+    },
+    {
+      "id": "1",
+      "name": "Jane Doe",
+      "username": "janedoe",
+      "email": "janedoe@gmail.com",
+      "role": "customer",
+      "password": "1234"
+    }
+  ],
+  "products": [
+    {
+      "productName": "Power Sneakers",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRxa6wy1ISty6dgeaGC-fHUnUPbUq2LI_Keg&s",
+      "price": "4500",
+      "description": "Elevate your run with comfortable shoes",
+      "id": "2"
+    },
+    {
+      "id": "3",
+      "productName": "Puma Sneakers",
+      "image": "https://www.californian.co.za/wp-content/uploads/2023/07/A1201-PUMA-WHITE_VARSITYGREEN3.jpg",
+      "price": "4000",
+      "description": "Get a stylish look and a comfortable feel"
+    },
+    {
+      "id": 4,
+      "productName": "hhhhh",
+      "image": "https://s3-eu-west-1.amazonaws.com/myrunway-portal-global/Images/NOR_8806133_BLANK/NOR_8806133_BLANK%7C3.jpg",
+      "price": "4000",
+      "description": "saaaa"
+    }
+  ],
+  "cartItems": [
+    {
+      "id": "6",
+      "userId": "2",
+      "products": []
+    },
+    {
+      "id": "7",
+      "userId": "1",
+      "products": []
+    }
+  ]
+}

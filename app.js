@@ -1,5 +1,10 @@
 const usersApiUrl = "http://localhost:3000/users"
 
+const accountExistsMsg = document.getElementById("account-exists")
+const successMessage = document.getElementById("account-success");
+const invalidMessage = document.getElementById("incomplete-form");
+const incorrectCredentials = document.querySelector(".incorret-credentials")
+
 
 async function getUsers() {
     try {
@@ -27,6 +32,12 @@ regForm.onsubmit = async (event) => {
     const username = document.getElementById("username").value
     const email = document.getElementById("email").value
     const password = document.getElementById("password").value
+    if (!username || !password) {
+        console.log("Showing incomplete form message"); // Debugging line
+        invalidMessage.style.display = "block";
+        return;
+    }
+    
 
     const newUser = {
         id: userId,
@@ -38,6 +49,16 @@ regForm.onsubmit = async (event) => {
     }
 
     try {
+        let checkResponse = await fetch(`${usersApiUrl}?email=${email}`);
+        let existingUsers = await checkResponse.json();
+
+        if (existingUsers.length > 0) {
+            accountExistsMsg.style.display = "block";
+            setTimeout(() => {
+                accountExistsMsg.style.display = "none";
+            }, 4000);
+            return; 
+        }
         let response = await fetch(usersApiUrl, {
             method: "POST",
             headers: {
@@ -76,6 +97,10 @@ loginForm.onsubmit = async (event) => {
 
     const username = document.getElementById("logUsername").value
     const password = document.getElementById("logPassword").value
+    if (!username || !password) {
+        invalidMessage.style.display = "block";
+        return;
+    }
 
     try {
         let response = await fetch(usersApiUrl, {
@@ -96,12 +121,12 @@ loginForm.onsubmit = async (event) => {
         } else{
             console.log("User logged in:", loggedUser);
             localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
-            Swal.fire({
-                title: "Login Successful!",
-                text: "Welcome back!",
-                icon: "success",
-                confirmButtonText: "OK"
-            });
+            // Swal.fire({
+            //     title: "Login Successful!",
+            //     text: "Welcome back!",
+            //     icon: "success",
+            //     confirmButtonText: "OK"
+            // });
             document.querySelector(".login-form").style.display = "none"
         }
         console.log("Logged user: ", loggedUser);
@@ -129,6 +154,10 @@ const openLoginForm = () => {
 }
 const openSignUpForm = () => {
     document.querySelector(".sign-up-form").style.display = "block";
+}
+const closeOpenForm = () => {
+    document.querySelector(".sign-up-form").style.display = "none";
+    document.querySelector(".login-form").style.display = "none";
 }
 function logout() {
     localStorage.clear()
