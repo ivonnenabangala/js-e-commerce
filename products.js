@@ -368,7 +368,7 @@ async function getAdminProducts() {
             <td><img src="${product.image}" alt="image"></td>
             <td>${product.price}</td>
             <td>${product.description}</td>
-            <td class="actions">
+            <td class="actions" data-cy="actions">
             <i class="fa fa-edit" aria-hidden="true" onclick="openEditForm(${product.id})"></i>
               <i class="fa fa-trash" aria-hidden="true" onclick="deleteProduct(${product.id})"></i>
             </td>
@@ -590,7 +590,7 @@ function openCreateForm() {
     editId = null;
     formTitle.textContent = "Create New Product";
     submitButton.textContent = "Add Product";
-    productForm.reset();
+    // productForm.reset();
     productForm.style.display = "block";
 }
 
